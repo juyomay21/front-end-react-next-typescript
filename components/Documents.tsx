@@ -1,32 +1,28 @@
-import { useEffect, useState, useRef } from 'react'
 import { Group, Menu, Button, Stack, MediaQuery } from '@mantine/core'
+import { useElementSize } from '@mantine/hooks';
 import { ChevronIcon } from '@mantine/core'
 
 const Documents = ({ docs }: { docs: string[] }) => {
-  const componentRef:any = useRef();
-  const [toggleWidth, setToggleWidth] = useState(0);
-
-  useEffect(() => {
-    //container width is 50% of the entire screen, so multiply the document's total width.
-    setToggleWidth(componentRef.current.offsetWidth * 2);
-  }, []);
+  const { ref, width} = useElementSize();
 
   return (
     <div style={{ width:'50vw', overflow: 'hidden', position: 'relative'}}>
       
+      {/* Rendering documents */}
       <MediaQuery
-        smallerThan={toggleWidth}
+        smallerThan={width * 2}
         styles={{ visibility: 'hidden' }}
       >
-        <Group ref={componentRef} noWrap={true} style={{display: 'inline-flex'}}>
+        <Group ref={ref} noWrap={true} style={{display: 'inline-flex'}}>
           {docs.map((element, idx) => (
             <div key={idx} style={{lineHeight: '36px'}}>{element}</div>
           ))}
         </Group>
       </MediaQuery>
 
+      {/* Rendering Toggle Button and Menu */}
       <MediaQuery
-        largerThan={toggleWidth}
+        largerThan={width * 2}
         styles={{ visibility: 'hidden'}}
       >
         <div style={{ position: 'absolute', top: 0, left: 0 }}>
@@ -34,6 +30,9 @@ const Documents = ({ docs }: { docs: string[] }) => {
             control={
               <Button 
                 rightIcon={<ChevronIcon />} 
+                variant="gradient"
+                gradient={{ from: 'teal', to: 'blue', deg: 60 }}
+                radius="lg"
                 size='sm'
               >
                 Documents

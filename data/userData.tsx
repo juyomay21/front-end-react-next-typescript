@@ -7,7 +7,7 @@ export const userData = [
       'Offer.pdf', 
       'Employment.pdf', 
       'Assignment.pdf', 
-      'NDA.pdf'
+      'Resume.pdf'
     ]
   },
   {
@@ -18,7 +18,7 @@ export const userData = [
       'Offer.pdf',
       'Employment.pdf',
       'Assignment.pdf',
-      'NDA.pdf',
+      'CV.pdf',
       'Resume.pdf'
     ]
   },

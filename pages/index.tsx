@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
-import { Table } from '@mantine/core'
+import { Table, Text } from '@mantine/core'
 
 import Documents from '../components/Documents'
-import { userData } from '../const/userData'
+import { userData } from '../data/userData'
 
 const Home: NextPage = () => {
 
@@ -27,14 +27,16 @@ const Home: NextPage = () => {
   ))
 
   return (
-    <Table striped highlightOnHover>
-      <thead>
-        {head}
-      </thead>
-      <tbody>
-        {rows}
-      </tbody>
-    </Table>
+    <>
+      <Table striped highlightOnHover>
+        <thead>
+          {head}
+        </thead>
+        <tbody>
+          {rows}
+        </tbody>
+      </Table>
+    </>
   )
 }
 
