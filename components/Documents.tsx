@@ -7,11 +7,13 @@ const Documents = ({ docs }: { docs: string[] }) => {
   const [toggleWidth, setToggleWidth] = useState(0);
 
   useEffect(() => {
+    //container width is 50% of the entire screen, so multiply the document's total width.
     setToggleWidth(componentRef.current.offsetWidth * 2);
   }, []);
 
   return (
     <div style={{ width:'50vw', overflow: 'hidden', position: 'relative'}}>
+      
       <MediaQuery
         smallerThan={toggleWidth}
         styles={{ visibility: 'hidden' }}
@@ -22,33 +24,32 @@ const Documents = ({ docs }: { docs: string[] }) => {
           ))}
         </Group>
       </MediaQuery>
-      {
-        <MediaQuery
-          largerThan={toggleWidth}
-          styles={{ visibility: 'hidden'}}
-        >
-          <div style={{ position: 'absolute', top: 0, left: 0 }}>
-            <Menu 
-              control={
-                <Button 
-                  rightIcon={<ChevronIcon />} 
-                  size='sm'
-                >
-                  Documents
-                </Button>} 
-              style={{maxHeight: 160, overflow: 'scroll'}}
-              position={"bottom"}
-              placement={"end"}
-            >
-              <Stack>
-                {docs.map((element, idx) => (
-                  <div key={idx} style={{height: 25}}>{element}</div>
-                ))}
-              </Stack>
-            </Menu>
-          </div>
-        </MediaQuery>
-      }
+
+      <MediaQuery
+        largerThan={toggleWidth}
+        styles={{ visibility: 'hidden'}}
+      >
+        <div style={{ position: 'absolute', top: 0, left: 0 }}>
+          <Menu 
+            control={
+              <Button 
+                rightIcon={<ChevronIcon />} 
+                size='sm'
+              >
+                Documents
+              </Button>} 
+            style={{maxHeight: 160, overflow: 'scroll'}}
+            position={"bottom"}
+            placement={"end"}
+          >
+            <Stack>
+              {docs.map((element, idx) => (
+                <div key={idx} style={{height: 25}}>{element}</div>
+              ))}
+            </Stack>
+          </Menu>
+        </div>
+      </MediaQuery>
     </div>
   )
 }
