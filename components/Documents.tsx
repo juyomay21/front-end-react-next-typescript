@@ -1,4 +1,4 @@
-import { Group, Menu, Button, Stack, MediaQuery } from '@mantine/core'
+import { Container, Group, Menu, Button, Stack, MediaQuery } from '@mantine/core'
 import { useElementSize } from '@mantine/hooks';
 import { ChevronIcon } from '@mantine/core'
 
@@ -6,8 +6,8 @@ const Documents = ({ docs }: { docs: string[] }) => {
   const { ref, width} = useElementSize();
 
   return (
-    <div style={{ width:'50vw', overflow: 'hidden', position: 'relative'}}>
-      
+    <Container style={{ width:'50vw', overflow: 'hidden', position: 'relative', padding: '0px'}}>
+
       {/* Rendering documents */}
       <MediaQuery
         smallerThan={width * 2}
@@ -49,7 +49,7 @@ const Documents = ({ docs }: { docs: string[] }) => {
           </Menu>
         </div>
       </MediaQuery>
-    </div>
+    </Container>
   )
 }
 
