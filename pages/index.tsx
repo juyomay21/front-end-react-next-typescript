@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { Table, Text } from '@mantine/core'
 
 import Documents from '../components/Documents'
-import { userData } from '../data/userData'
+import { userData } from '../utils/userData'
 
 const Home: NextPage = () => {
 

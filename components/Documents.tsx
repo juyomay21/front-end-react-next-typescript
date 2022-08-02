@@ -1,12 +1,13 @@
+import React from 'react'
 import { Container, Group, Menu, Button, Stack, MediaQuery } from '@mantine/core'
 import { useElementSize } from '@mantine/hooks';
 import { ChevronIcon } from '@mantine/core'
 
 const Documents = ({ docs }: { docs: string[] }) => {
-  const { ref, width} = useElementSize();
+  const { ref, width } = useElementSize<HTMLDivElement>();
 
   return (
-    <Container style={{ width:'50vw', overflow: 'hidden', position: 'relative', padding: '0px'}}>
+    <Container style={{ width:'50vw', overflow: 'hidden', position: 'relative', padding: '0px', margin: '0px'}}>
 
       {/* Rendering documents */}
       <MediaQuery
